@@ -19,6 +19,6 @@ public class Player : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         // Debug.Log(h);
         float v = Input.GetAxis("Vertical");
-        rd.AddForce(new Vector3(h, 0, v));
+        rd.velocity = (new Vector3(h, 0, v));
     }
 }
