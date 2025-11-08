@@ -2,39 +2,36 @@ using UnityEngine;
 
 public class RandomSpawner : MonoBehaviour
 {
-    [Header("ÒªËæ»úÉú³ÉµÄPrefab")]
     public GameObject[] prefabs;
-
-    [Header("Éú³ÉÊıÁ¿")]
     public int count = 20;
-
-    [Header("Éú³ÉÇøÓò´óĞ¡ (X=¿í, Y=¸ß, Z=Éî)")]
     public Vector3 areaSize = new Vector3(10, 0, 10);
 
     void Start()
     {
         for (int i = 0; i < count; i++)
         {
-            // ÔÚÇøÓò·¶Î§ÄÚÉú³ÉÒ»¸öËæ»úÆ«ÒÆ
             Vector3 randomOffset = new Vector3(
                 Random.Range(-areaSize.x / 2, areaSize.x / 2),
                 Random.Range(-areaSize.y / 2, areaSize.y / 2),
                 Random.Range(-areaSize.z / 2, areaSize.z / 2)
             );
-
-            // Éú³ÉÎ»ÖÃ = ÇøÓòÖĞĞÄµã(½Å±¾ÎïÌåÎ»ÖÃ) + Ëæ»úÆ«ÒÆ
+            
             Vector3 pos = transform.position + randomOffset;
+            
+            Vector3 randomEuler = new Vector3(
+                Random.Range(0f, 360f),   // Xè½´éšæœºè§’åº¦
+                Random.Range(0f, 360f),   // Yè½´éšæœºè§’åº¦
+                Random.Range(0f, 360f)    // Zè½´éšæœºè§’åº¦
+            );
 
-            // Ëæ»úÌôÑ¡Ò»¸öPrefab²¢Éú³É
             Instantiate(
                 prefabs[Random.Range(0, prefabs.Length)],
                 pos,
-                Quaternion.identity
+                Quaternion.Euler(randomEuler) // æ¬§æ‹‰è§’è½¬å››å…ƒæ•°
             );
         }
     }
-
-    // ÔÚSceneÊÓÍ¼Àï»æÖÆÉú³ÉÇøÓòµÄÂÌÉ«·½¿é£¨Ö»ÔÚÑ¡ÖĞÎïÌåÊ±ÏÔÊ¾£©
+    
     void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(0, 1, 0, 0.3f);
