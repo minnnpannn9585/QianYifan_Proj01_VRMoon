@@ -29,9 +29,13 @@ public class BoatRoute : MonoBehaviour
 
         if (!canMove)
         {
-            return;
+            if (fishes(index - 1))   // 上一段的鱼
+            {
+                canMove = true;   // 可以启程到下一段
+            }
+            else return;
         }
-	    
+
         Vector3 dir = points[index].position - boat.position; 
 
         // 移动逻辑
