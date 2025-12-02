@@ -1506,7 +1506,7 @@ MonoBehaviour:
   - {fileID: 8537010508370927571, guid: 4228514410c554568b3f1277d569604e, type: 3}
   - {fileID: 9213148828236175349, guid: 63631e8f43c4a49af80b1b20dfd58fb4, type: 3}
   - {fileID: 313369690800127662, guid: 7efdce71ec79145bba2295c09509d3db, type: 3}
-  count: 6
+  count: 25
   areaSize: {x: 6.8, y: 3.63, z: 8}
 --- !u!1 &1144837720
 GameObject:
