@@ -518,10 +518,10 @@
     "m_Guid": {
         "m_GuidSerialized": "397932d9-a19e-4cb6-9e6a-b3871cc29f9a"
     },
-    "m_Name": "Leaf_tx",
+    "m_Name": "grass_tx",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Leaf_tx",
-    "m_DefaultReferenceName": "_Leaf_tx",
+    "m_RefNameGeneratedByDisplayName": "grass_tx",
+    "m_DefaultReferenceName": "_grass_tx",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -532,7 +532,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"fab7483d33edeb74981f2aa3bb496a26\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"e1f770b46575e8a4a8244c990b35b017\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -2095,7 +2095,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "78d7621161c74b79b66993bb0c74bfa5",
     "m_Id": 0,
-    "m_DisplayName": "Leaf_tx",
+    "m_DisplayName": "grass_tx",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
