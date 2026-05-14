@@ -1706,7 +1706,7 @@
         "m_Id": "8436f745ea1340879ea97beab13df7a0"
     },
     "m_AllowMaterialOverride": false,
-    "m_SurfaceType": 1,
+    "m_SurfaceType": 0,
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
     "m_AlphaMode": 0,
@@ -2029,13 +2029,13 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "r": 0.15205587446689607,
-        "g": 0.5282874703407288,
-        "b": 0.6320754289627075,
+        "r": 4.0,
+        "g": 3.8817784786224367,
+        "b": 2.77647066116333,
         "a": 1.0
     },
     "isMainColor": false,
-    "m_ColorMode": 0
+    "m_ColorMode": 1
 }
 
 {
@@ -3247,8 +3247,8 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -145.0000457763672,
-            "y": 570.9999389648438,
+            "x": -142.9999237060547,
+            "y": 571.0,
             "width": 208.0,
             "height": 302.00006103515627
         }

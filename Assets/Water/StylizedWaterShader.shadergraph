@@ -152,6 +152,9 @@
         },
         {
             "m_Id": "b17a614ff4ab487fb007dad72006c294"
+        },
+        {
+            "m_Id": "4207e444ad7040f2bea395f97e4b3600"
         }
     ],
     "m_GroupDatas": [
@@ -641,6 +644,9 @@
             },
             {
                 "m_Id": "67401138fb164e3783e2f7513bac44c8"
+            },
+            {
+                "m_Id": "4207e444ad7040f2bea395f97e4b3600"
             }
         ]
     },
@@ -1727,6 +1733,40 @@
         "w": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "4207e444ad7040f2bea395f97e4b3600",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.AlphaClipThreshold",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "93be66e8745a4d8d9ec2e8e6831d33cf"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.AlphaClipThreshold"
 }
 
 {
@@ -2949,6 +2989,21 @@
 }
 
 {
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "93be66e8745a4d8d9ec2e8e6831d33cf",
+    "m_Id": 0,
+    "m_DisplayName": "Alpha Clip Threshold",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "AlphaClipThreshold",
+    "m_StageCapability": 2,
+    "m_Value": 0.5,
+    "m_DefaultValue": 0.5,
+    "m_Labels": []
+}
+
+{
     "m_SGVersion": 1,
     "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
     "m_ObjectId": "94b9649af7a6416e90b711ac6e9f4f3d",
@@ -3191,8 +3246,8 @@
     "m_ObjectId": "9ee05609e24e4d02856ed70181611fec",
     "m_Title": "WaterColor",
     "m_Position": {
-        "x": -683.0,
-        "y": -176.0
+        "x": -682.9998779296875,
+        "y": -176.00001525878907
     }
 }
 
@@ -4073,7 +4128,7 @@
     "m_ActiveSubTarget": {
         "m_Id": "b821a94b9d594a7cbbac1852bd6a20b9"
     },
-    "m_AllowMaterialOverride": false,
+    "m_AllowMaterialOverride": true,
     "m_SurfaceType": 1,
     "m_ZTestMode": 4,
     "m_ZWriteControl": 0,
