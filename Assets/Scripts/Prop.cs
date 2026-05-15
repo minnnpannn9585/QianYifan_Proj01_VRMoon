@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Prop : MonoBehaviour
 {
-    private int count;
+    public int count;
     public BoatRoute boat;
     private void OnTriggerEnter(Collider other)
     {
