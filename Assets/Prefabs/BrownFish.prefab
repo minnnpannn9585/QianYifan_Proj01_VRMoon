@@ -654,6 +654,7 @@ GameObject:
   - component: {fileID: 2631323204938369616}
   - component: {fileID: 2420510296325124128}
   - component: {fileID: -1662069203081358400}
+  - component: {fileID: 369262891358327968}
   m_Layer: 0
   m_Name: BrownFish
   m_TagString: Fish
@@ -765,6 +766,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &369262891358327968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8537010508370927571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fedb9672289881c4f98b7e511ce8db41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveEffectPrefab: {fileID: 30207256496261666, guid: 3be538b22c0c05142b7e8cc14cbb9c8a,
+    type: 3}
+  effectDestroyDelay: 5
+  meshRoot: {fileID: 7428106403622532437}
+  scaleDownDuration: 0.5
 --- !u!1 &8987719751618088003
 GameObject:
   m_ObjectHideFlags: 0

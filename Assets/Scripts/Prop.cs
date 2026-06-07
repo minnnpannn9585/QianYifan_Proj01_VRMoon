@@ -7,17 +7,29 @@ public class Prop : MonoBehaviour
 {
     public int count;
     public BoatRoute boat;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Fish"))
+        if (!other.CompareTag("Fish"))
+        {
+            return;
+        }
+
+        FishCollectEffect effect = other.GetComponent<FishCollectEffect>();
+        if (effect != null)
+        {
+            effect.Collect();
+        }
+        else
         {
             Destroy(other.gameObject);
-            count++;
-            if (count == 5)
-            {
-                boat.canMove = true;
-                count = 0;
-            }
+        }
+
+        count++;
+        if (count == 5)
+        {
+            boat.canMove = true;
+            count = 0;
         }
     }
 }

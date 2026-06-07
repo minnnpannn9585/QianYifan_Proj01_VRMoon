@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 4663533864032364888}
   - component: {fileID: 7408350346553665236}
   - component: {fileID: -8116984482311734940}
+  - component: {fileID: -622055429651076768}
   m_Layer: 0
   m_Name: ClownFish
   m_TagString: Fish
@@ -634,3 +635,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-622055429651076768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213148828236175349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fedb9672289881c4f98b7e511ce8db41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveEffectPrefab: {fileID: 30207256496261666, guid: 3be538b22c0c05142b7e8cc14cbb9c8a,
+    type: 3}
+  effectDestroyDelay: 5
+  meshRoot: {fileID: 5093947925558769422}
+  scaleDownDuration: 0.5
