@@ -1,8 +1,16 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class BookUi : MonoBehaviour
 {
+    [Serializable]
+    private class PropNoteEntry
+    {
+        public int propId;
+        public GameObject noteObject;
+    }
+
     [Header("Input")]
     [SerializeField] private InputActionReference toggleAction;
 
@@ -12,6 +20,16 @@ public class BookUi : MonoBehaviour
     [Header("Pages")]
     [SerializeField] private GameObject[] pages;
     [SerializeField] private int currentPageIndex = 0;
+
+    [Header("Prop Notes")]
+    [SerializeField] private PropNoteEntry[] propNotes;
+
+    public static BookUi Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Reset()
     {
@@ -84,6 +102,22 @@ public class BookUi : MonoBehaviour
         }
 
         RefreshPages();
+    }
+
+    public void UnlockPropNote(int propId)
+    {
+        if (propNotes == null)
+        {
+            return;
+        }
+
+        for (int i = 0; i < propNotes.Length; i++)
+        {
+            if (propNotes[i] != null && propNotes[i].propId == propId && propNotes[i].noteObject != null)
+            {
+                propNotes[i].noteObject.SetActive(true);
+            }
+        }
     }
 
     private void RefreshPages()

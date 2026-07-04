@@ -1,49 +1,71 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
 public class Milk : MonoBehaviour
 {
-    [Tooltip("Amount to move along the Z axis each time a ladle hits the milk.")]
+    [Tooltip("Amount to move along the Y axis each time milk is successfully scooped after props are cleared.")]
     public float decreaseAmount = 0.1f;
 
     [Tooltip("Maximum number of times the milk can be decreased.")]
     public int maxDecreaseCount = 3;
 
-    // tracks how many times we've decreased so far
+    [Tooltip("Props floating on this milk surface. They will be collected before the water level decreases.")]
+    [SerializeField] private List<GameObject> surfaceProps = new List<GameObject>();
+
     private int currentCount = 0;
 
-    // Support both trigger and non-trigger collisions
-    private void OnTriggerEnter(Collider other)
+    public bool TryScoop(Milk_Collect collector)
     {
-        if (other.CompareTag("Ladle"))
+        if (collector == null || collector.HasMilk)
         {
-            HandleHit();
+            return false;
         }
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Ladle"))
+        if (TryCollectSurfaceProps())
         {
-            HandleHit();
+            return false;
         }
-    }
 
-    private void HandleHit()
-    {
         if (currentCount >= maxDecreaseCount)
-            return;
+        {
+            return false;
+        }
 
         Vector3 pos = transform.position;
         pos.y -= decreaseAmount;
         transform.position = pos;
 
         currentCount++;
+        return true;
     }
 
-    // Optional: expose a way to reset the counter from other scripts or the inspector
+    private bool TryCollectSurfaceProps()
+    {
+        bool collectedAny = false;
+
+        for (int i = surfaceProps.Count - 1; i >= 0; i--)
+        {
+            GameObject prop = surfaceProps[i];
+            if (prop == null)
+            {
+                surfaceProps.RemoveAt(i);
+                continue;
+            }
+
+            PropId propId = prop.GetComponent<PropId>();
+            if (propId != null && BookUi.Instance != null)
+            {
+                BookUi.Instance.UnlockPropNote(propId.propId);
+            }
+
+            Destroy(prop);
+            surfaceProps.RemoveAt(i);
+            collectedAny = true;
+        }
+
+        return collectedAny;
+    }
+
     public void ResetDecreases()
     {
         currentCount = 0;
