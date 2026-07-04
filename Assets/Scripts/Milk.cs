@@ -37,7 +37,7 @@ public class Milk : MonoBehaviour
             return;
 
         Vector3 pos = transform.position;
-        pos.z -= decreaseAmount;
+        pos.y -= decreaseAmount;
         transform.position = pos;
 
         currentCount++;
