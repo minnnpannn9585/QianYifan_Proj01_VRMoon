@@ -7,10 +7,16 @@ public class Milk_Collect : MonoBehaviour
     [Header("Tags")]
     [SerializeField] private string bucketTag = "Bucket";
 
+    [Header("Milk Visual")]
+    [SerializeField] private GameObject milkPlanePrefab;
+    [SerializeField] private Transform milkPlaneAttachPoint;
+
     [Header("State")]
     [SerializeField] private bool hasMilk;
 
     public bool HasMilk => hasMilk;
+
+    private GameObject _spawnedMilkPlane;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -47,6 +53,33 @@ public class Milk_Collect : MonoBehaviour
         if (milk.TryScoop(this))
         {
             hasMilk = true;
+            SpawnMilkPlane();
+        }
+    }
+
+    private void SpawnMilkPlane()
+    {
+        if (milkPlanePrefab == null || _spawnedMilkPlane != null)
+        {
+            return;
+        }
+
+        Transform attachTo = milkPlaneAttachPoint != null ? milkPlaneAttachPoint : transform;
+        _spawnedMilkPlane = Instantiate(milkPlanePrefab, attachTo);
+        _spawnedMilkPlane.transform.localPosition = Vector3.zero;
+        _spawnedMilkPlane.transform.localRotation = Quaternion.identity;
+
+        // Disable Milk and collider components to avoid re-triggering interactions
+        Milk milkComp = _spawnedMilkPlane.GetComponent<Milk>();
+        if (milkComp != null)
+        {
+            milkComp.enabled = false;
+        }
+
+        Collider col = _spawnedMilkPlane.GetComponent<Collider>();
+        if (col != null)
+        {
+            col.enabled = false;
         }
     }
 
@@ -58,10 +91,21 @@ public class Milk_Collect : MonoBehaviour
         }
 
         hasMilk = false;
+        DestroyMilkPlane();
+    }
+
+    private void DestroyMilkPlane()
+    {
+        if (_spawnedMilkPlane != null)
+        {
+            Destroy(_spawnedMilkPlane);
+            _spawnedMilkPlane = null;
+        }
     }
 
     public void ResetMilkState()
     {
         hasMilk = false;
+        DestroyMilkPlane();
     }
 }

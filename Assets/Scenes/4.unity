@@ -24970,6 +24970,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bucketTag: Bucket
+  milkPlanePrefab: {fileID: 100100000, guid: 6c5543d753945604e8fdf3fa8332b0ce, type: 3}
+  milkPlaneAttachPoint: {fileID: 0}
   hasMilk: 0
 --- !u!54 &755958425
 Rigidbody:
