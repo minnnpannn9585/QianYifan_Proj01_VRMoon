@@ -1,18 +1,24 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Milk : MonoBehaviour
 {
-    [Tooltip("Amount to move along the Y axis each time milk is successfully scooped after props are cleared.")]
-    public float decreaseAmount = 0.1f;
-
-    [Tooltip("Maximum number of times the milk can be decreased.")]
+    [Tooltip("Maximum number of times the milk can be scooped.")]
     public int maxDecreaseCount = 3;
 
-    [Tooltip("Props floating on this milk surface. They will be collected before the water level decreases.")]
+    [Tooltip("World-space Y distance the milk moves down after each successful scoop.")]
+    [SerializeField] private float decreaseAmount = 0.15f;
+
+    [Tooltip("Props floating on this milk surface. One random prop is collected before milk can be scooped.")]
     [SerializeField] private List<GameObject> surfaceProps = new List<GameObject>();
 
+    [Header("Effect")]
+    [SerializeField] private GameObject scoopEffectObject;
+    [SerializeField] private float scoopEffectDuration = 1f;
+
     private int currentCount = 0;
+    private Coroutine scoopEffectCoroutine;
 
     public bool TryScoop(Milk_Collect collector)
     {
@@ -21,8 +27,12 @@ public class Milk : MonoBehaviour
             return false;
         }
 
-        if (TryCollectSurfaceProps())
+        CleanupNullSurfaceProps();
+
+        if (surfaceProps.Count > 0)
         {
+            CollectRandomSurfaceProp();
+            PlayScoopEffect();
             return false;
         }
 
@@ -31,39 +41,87 @@ public class Milk : MonoBehaviour
             return false;
         }
 
-        Vector3 pos = transform.position;
-        pos.y -= decreaseAmount;
-        transform.position = pos;
-
         currentCount++;
+
+        Vector3 position = transform.position;
+        position.y -= decreaseAmount;
+        transform.position = position;
+
+        PlayScoopEffect();
+
+        if (currentCount >= maxDecreaseCount)
+        {
+            Destroy(gameObject);
+        }
+
         return true;
     }
 
-    private bool TryCollectSurfaceProps()
+    public bool HasSurfaceProps()
     {
-        bool collectedAny = false;
+        CleanupNullSurfaceProps();
+        return surfaceProps.Count > 0;
+    }
 
-        for (int i = surfaceProps.Count - 1; i >= 0; i--)
+    private void CollectRandomSurfaceProp()
+    {
+        if (surfaceProps.Count == 0)
         {
-            GameObject prop = surfaceProps[i];
-            if (prop == null)
-            {
-                surfaceProps.RemoveAt(i);
-                continue;
-            }
-
-            PropId propId = prop.GetComponent<PropId>();
-            if (propId != null && BookUi.Instance != null)
-            {
-                BookUi.Instance.UnlockPropNote(propId.propId);
-            }
-
-            Destroy(prop);
-            surfaceProps.RemoveAt(i);
-            collectedAny = true;
+            return;
         }
 
-        return collectedAny;
+        int randomIndex = Random.Range(0, surfaceProps.Count);
+        GameObject prop = surfaceProps[randomIndex];
+        surfaceProps.RemoveAt(randomIndex);
+
+        if (prop == null)
+        {
+            return;
+        }
+
+        PropId propId = prop.GetComponent<PropId>();
+        if (propId != null && BookUi.Instance != null)
+        {
+            BookUi.Instance.UnlockPropNote(propId.propId);
+        }
+
+        Destroy(prop);
+    }
+
+    private void CleanupNullSurfaceProps()
+    {
+        for (int i = surfaceProps.Count - 1; i >= 0; i--)
+        {
+            if (surfaceProps[i] == null)
+            {
+                surfaceProps.RemoveAt(i);
+            }
+        }
+    }
+
+    private void PlayScoopEffect()
+    {
+        if (scoopEffectObject == null)
+        {
+            return;
+        }
+
+        if (scoopEffectCoroutine != null)
+        {
+            StopCoroutine(scoopEffectCoroutine);
+        }
+
+        scoopEffectCoroutine = StartCoroutine(PlayScoopEffectRoutine());
+    }
+
+    private IEnumerator PlayScoopEffectRoutine()
+    {
+        scoopEffectObject.SetActive(false);
+        yield return null;
+        scoopEffectObject.SetActive(true);
+        yield return new WaitForSeconds(scoopEffectDuration);
+        scoopEffectObject.SetActive(false);
+        scoopEffectCoroutine = null;
     }
 
     public void ResetDecreases()

@@ -36,25 +36,25 @@ public class BookUi : MonoBehaviour
         target = gameObject;
     }
 
-    private void OnEnable()
-    {
-        if (toggleAction != null && toggleAction.action != null)
-        {
-            toggleAction.action.Enable();
-            toggleAction.action.performed += OnTogglePerformed;
-        }
+    //private void OnEnable()
+    //{
+    //    if (toggleAction != null && toggleAction.action != null)
+    //    {
+    //        toggleAction.action.Enable();
+    //        toggleAction.action.performed += OnTogglePerformed;
+    //    }
 
-        RefreshPages();
-    }
+    //    RefreshPages();
+    //}
 
-    private void OnDisable()
-    {
-        if (toggleAction != null && toggleAction.action != null)
-        {
-            toggleAction.action.performed -= OnTogglePerformed;
-            toggleAction.action.Disable();
-        }
-    }
+    //private void OnDisable()
+    //{
+    //    if (toggleAction != null && toggleAction.action != null)
+    //    {
+    //        toggleAction.action.performed -= OnTogglePerformed;
+    //        toggleAction.action.Disable();
+    //    }
+    //}
 
     private void OnTogglePerformed(InputAction.CallbackContext context)
     {
