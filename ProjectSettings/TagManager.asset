@@ -10,6 +10,7 @@ TagManager:
   - Milk
   - Ladle
   - Bucket
+  - Fan
   layers:
   - Default
   - TransparentFX

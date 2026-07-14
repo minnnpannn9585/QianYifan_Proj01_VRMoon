@@ -11028,8 +11028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ec9dd0f271e4c4b97357279b36d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
+  amplitude: 0.1
+  frequency: 0.2
   useLocalPosition: 1
   motion: 0
   axis: {x: 0, y: 1, z: 0}
@@ -20957,8 +20957,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ec9dd0f271e4c4b97357279b36d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
+  amplitude: 0.1
+  frequency: 0.2
   useLocalPosition: 1
   motion: 0
   axis: {x: 0, y: 1, z: 0}
@@ -21273,8 +21273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ec9dd0f271e4c4b97357279b36d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
+  amplitude: 0.1
+  frequency: 0.2
   useLocalPosition: 1
   motion: 0
   axis: {x: 0, y: 1, z: 0}
@@ -21576,8 +21576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ec9dd0f271e4c4b97357279b36d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
+  amplitude: 0.1
+  frequency: 0.2
   useLocalPosition: 1
   motion: 0
   axis: {x: 0, y: 1, z: 0}
@@ -28066,8 +28066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ec9dd0f271e4c4b97357279b36d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
+  amplitude: 0.1
+  frequency: 0.2
   useLocalPosition: 1
   motion: 0
   axis: {x: 0, y: 1, z: 0}
@@ -62040,8 +62040,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ec9dd0f271e4c4b97357279b36d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
+  amplitude: 0.1
+  frequency: 0.2
   useLocalPosition: 1
   motion: 0
   axis: {x: 0, y: 1, z: 0}
@@ -79229,8 +79229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ec9dd0f271e4c4b97357279b36d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
+  amplitude: 0.1
+  frequency: 0.2
   useLocalPosition: 1
   motion: 0
   axis: {x: 0, y: 1, z: 0}
@@ -89339,7 +89339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1434989834
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -90239,8 +90239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ec9dd0f271e4c4b97357279b36d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
+  amplitude: 0.1
+  frequency: 0.2
   useLocalPosition: 1
   motion: 0
   axis: {x: 0, y: 1, z: 0}
@@ -106845,8 +106845,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ec9dd0f271e4c4b97357279b36d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
+  amplitude: 0.1
+  frequency: 0.2
   useLocalPosition: 1
   motion: 0
   axis: {x: 0, y: 1, z: 0}
@@ -107630,8 +107630,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ec9dd0f271e4c4b97357279b36d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
+  amplitude: 0.1
+  frequency: 0.2
   useLocalPosition: 1
   motion: 0
   axis: {x: 0, y: 1, z: 0}
@@ -108577,8 +108577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ec9dd0f271e4c4b97357279b36d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
+  amplitude: 0.1
+  frequency: 0.2
   useLocalPosition: 1
   motion: 0
   axis: {x: 0, y: 1, z: 0}
@@ -114092,8 +114092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ec9dd0f271e4c4b97357279b36d6e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplitude: 0.5
-  frequency: 1
+  amplitude: 0.1
+  frequency: 0.2
   useLocalPosition: 1
   motion: 0
   axis: {x: 0, y: 1, z: 0}
