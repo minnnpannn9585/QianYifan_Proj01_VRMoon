@@ -17,17 +17,16 @@ public class RandomSpawner : MonoBehaviour
             );
             
             Vector3 pos = transform.position + randomOffset;
-            
+
             Vector3 randomEuler = new Vector3(
-                Random.Range(0f, 360f),   // X轴随机角度
-                Random.Range(0f, 360f),   // Y轴随机角度
-                Random.Range(0f, 360f)    // Z轴随机角度
-            );
+                Random.Range(0f, 360f),
+                Random.Range(0f, 360f),
+                Random.Range(0f, 360f));   
 
             Instantiate(
                 prefabs[Random.Range(0, prefabs.Length)],
                 pos,
-                Quaternion.Euler(randomEuler) // 欧拉角转四元数
+                Quaternion.Euler(randomEuler) 
             );
         }
     }
